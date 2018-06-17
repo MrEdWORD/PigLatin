@@ -3,8 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PigLatin.Tests
 {
+    #region Single Word Consonant Tests
     [TestClass]
-    public class PigLatinTests
+    public class PigLatinTests_SingleWordConsonants
     {
         [TestMethod]
         public void PigLatin_WhenBanana_ReturnsAnanabay()
@@ -71,4 +72,22 @@ namespace PigLatin.Tests
             Assert.AreEqual("oopay", output);
         }
     }
+    #endregion
+
+    #region Multiple Word Consonant Tests
+    [TestClass]
+    public class PigLatinTests_MultipleWordConsonants
+    {
+        [TestMethod]
+        public void PigLatin_WhenBananaPoo_ReturnsAnanabayOopay()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+    }
+    #endregion
 }

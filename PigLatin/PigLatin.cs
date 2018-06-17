@@ -9,7 +9,7 @@ namespace PigLatin
 {
     public static class PigLatin
     {
-        public static string[] Consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t",
+        private static string[] Consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t",
                 "v", "w", "x", "y", "z" };
         private static string ConsonantCluster = "group of consonants with no intervening vowel, " +
             "e.g. 'splits'...spl AND ts are clusters, but the i is a vowel.";
@@ -18,17 +18,24 @@ namespace PigLatin
         public static string ConvertToPigLatin(string input)
         {
             string output = string.Empty;
-            string firstLetterOfInput = input.Substring(0, 1).ToLower();
+            string[] words = input.Split(null);
+            List<string> pigLatinWords = new List<string>();
 
-            foreach (string s in Consonants)
+            foreach (string word in words)
             {
-                if (firstLetterOfInput == s)
+                string firstLetter = word.Substring(0, 1).ToLower();
+
+                foreach (string s in Consonants)
                 {
-                    string inputWithoutConsonant = input.Substring(1, input.Length - 1).ToLower();
-                    output = inputWithoutConsonant + firstLetterOfInput + "ay";
+                    if (s == firstLetter)
+                    {
+                        string wordWithoutFirstLetter = word.Substring(1, word.Length - 1).ToLower();
+
+                        pigLatinWords.Add(wordWithoutFirstLetter + firstLetter + "ay");
+                    }
                 }
             }
-
+            output = String.Join(" ", pigLatinWords);
             return output;
         }
     }

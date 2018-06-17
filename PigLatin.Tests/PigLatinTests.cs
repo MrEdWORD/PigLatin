@@ -23,52 +23,32 @@ namespace PigLatin.Tests
         [TestMethod]
         public void PigLatin_WhenPig_ReturnsIgpay()
         {
-            //Arrange
             string input = "pig";
-
-            //Act
             string output = PigLatin.ConvertToPigLatin(input);
-
-            //Assert
             Assert.AreEqual("igpay", output);
         }
 
         [TestMethod]
         public void PigLatin_WhenToo_ReturnsOotay()
         {
-            //Arrange
             string input = "Too";
-
-            //Act
             string output = PigLatin.ConvertToPigLatin(input);
-
-            //Assert
             Assert.AreEqual("ootay", output);
         }
 
         [TestMethod]
         public void PigLatin_WhenSimple_ReturnsImplesay()
         {
-            //Arrange
             string input = "Simple";
-
-            //Act
             string output = PigLatin.ConvertToPigLatin(input);
-
-            //Assert
             Assert.AreEqual("implesay", output);
         }
 
         [TestMethod]
         public void PigLatin_WhenPoo_ReturnsOopay()
         {
-            //Arrange
             string input = "pOo";
-
-            //Act
             string output = PigLatin.ConvertToPigLatin(input);
-
-            //Assert
             Assert.AreEqual("oopay", output);
         }
     }
@@ -81,13 +61,43 @@ namespace PigLatin.Tests
         [TestMethod]
         public void PigLatin_WhenBananaPoo_ReturnsAnanabayOopay()
         {
-            //Arrange
+            string input = "bAnAna POO";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("ananabay oopay", output);
+        }
 
-            //Act
+        [TestMethod]
+        public void PigLatin_WhenHappyDuck_ReturnsAppyhayUckday()
+        {
+            string input = "HAPPY duck";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("appyhay uckday", output);
+        }
 
-            //Assert
+        [TestMethod]
+        public void PigLatin_WhenRealSay_ReturnsEalrayAysay()
+        {
+            string input = "REAL SAY";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("ealray aysay", output);
+        }
 
+        [TestMethod]
+        public void PigLatin_WhenPooPoo_ReturnsOopayOopay()
+        {
+            string input = "Poo poo"; // ^_^
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("oopay oopay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenLatinPig_ReturnsAtinlayIgpay()
+        {
+            string input = "Latin Pig"; // ^_^
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("atinlay igpay", output);
         }
     }
     #endregion
+
 }

@@ -9,10 +9,6 @@ namespace PigLatin
 {
     public static class PigLatin
     {
-        private static string[] Consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t",
-                "v", "w", "x", "y", "z" };
-        private static string ConsonantCluster = "group of consonants with no intervening vowel, " +
-            "e.g. 'splits'...spl AND ts are clusters, but the i is a vowel.";
         private static char[] Vowels = { 'a', 'e', 'i', 'o', 'u' };
 
         public static string ConvertToPigLatin(string input)
@@ -21,70 +17,53 @@ namespace PigLatin
             string[] words = input.Split(null);
             List<string> pigLatinWords = new List<string>();
 
-            foreach (string word in words)
+            for (int wordNumber = 0; wordNumber < words.Length; wordNumber++)
             {
-                string firstLetter = word.Substring(0, 1).ToLower();
-                string restOfWord = word.Substring(1, (word.Length - 1)).ToLower();
-
-                foreach (char vowel in Vowels)
-                {
-                    if (firstLetter != vowel.ToString())
-                    {
-                        pigLatinWords.Add(restOfWord + firstLetter + "ay");
-                        break;
-                    }
-                }
-            }
-            output = String.Join(" ", pigLatinWords);
-            return output;
-        }
-
-        public static string ConvertToPigLatinCluster(string input)
-        {
-            string output = string.Empty;
-            string[] words = input.Split(null);
-            List<string> pigLatinWords = new List<string>();
-
-            int loopCounter = 0;
-            foreach (string word in words)
-            {
-
-                char[] lettersArr = words[loopCounter].ToLower().ToCharArray();
-                int consonantCounter = 0;
-                bool wordStartsWithConsonant = false;
+                char[] letters = words[wordNumber].ToLower().ToCharArray();
+                int numberOfConsonants = 0;
+                bool wordContainsConsonant = false;
 
                 //this counts the number of elements in the word if starting with consonant
-                for (int i = 0; i < lettersArr.Length; i++)
+                for (int letterNumber = 0; letterNumber < letters.Length; letterNumber++)
                 {
-                    int j = Array.IndexOf(Vowels, lettersArr[i]);
+                    bool letterIsVowel = IsLetterAVowel(letters, letterNumber);
 
-                    if (i == 0 && j == -1) //if first letter of word AND letter is not a vowel
+                    if (letterNumber == 0 && !letterIsVowel) //if first letter of word AND letter is not a vowel
                     {
-                        consonantCounter++;
-                        wordStartsWithConsonant = true;
+                        numberOfConsonants++;
+                        wordContainsConsonant = true;
                     }
-                    else if (wordStartsWithConsonant == true && j == -1) //if first letter was consoannt and current letter is not a vowel
+                    else if (wordContainsConsonant == true && !letterIsVowel) //if first letter was consoannt and current letter is not a vowel
                     {
-                        consonantCounter++;
+                        numberOfConsonants++;
                     }
-                    else if (wordStartsWithConsonant == true && j != -1) //if first letter was consonant and current letter is vowel
+                    else if (wordContainsConsonant == true && letterIsVowel) //if first letter was consonant and current letter is vowel
                     {
                         break;
                     }
                 }
-                string firstConsonants = words[loopCounter].ToLower().Substring(0, consonantCounter);
-                string restOfWord = words[loopCounter].ToLower().Substring(consonantCounter, (words[loopCounter].Length - consonantCounter));
-                pigLatinWords.Add(restOfWord + firstConsonants + "ay");
-                loopCounter++;
+                string consonants = words[wordNumber].ToLower().Substring(0, numberOfConsonants);
+                string restOfWord = words[wordNumber].ToLower().Substring(numberOfConsonants, (words[wordNumber].Length - numberOfConsonants));
+                pigLatinWords.Add(restOfWord + consonants + "ay");
             }
 
             output = String.Join(" ", pigLatinWords);
             return output;
         }
 
-        private static void DoTheWordPlusYayThing()
+        private static bool IsLetterAVowel(char[] letters, int letterNumber)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Vowels.Length; i++)
+            {
+                bool letterIsVowel = Vowels.Contains(letters[letterNumber]);
+
+                if (letterIsVowel)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

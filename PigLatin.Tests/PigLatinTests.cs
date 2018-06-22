@@ -108,8 +108,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenCheers_ReturnsEerschay()
         {
             string input = "cheers";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("eerschay", output);
         }
 
@@ -117,8 +116,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenShesh_ReturnsEshshay()
         {
             string input = "Shesh";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("eshshay", output);
         }
 
@@ -126,8 +124,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenSmile_ReturnsIlesmay()
         {
             string input = "SmilE";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("ilesmay", output);
         }
 
@@ -135,8 +132,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenString_ReturnsIngstray()
         {
             string input = "STRING";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("ingstray", output);
         }
 
@@ -144,8 +140,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenThanks_ReturnsAnksthay()
         {
             string input = "Thanks";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("anksthay", output);
         }
     }
@@ -159,8 +154,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenCheersShesh_ReturnsEerschayEshshay()
         {
             string input = "cheers shesh";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("eerschay eshshay", output);
         }
 
@@ -168,8 +162,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenSmileString_ReturnsIlesmayIngstray()
         {
             string input = "SmIlE strING";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("ilesmay ingstray", output);
         }
 
@@ -177,8 +170,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenThanksStupid_ReturnsAnksthayUpidstay()
         {
             string input = "thanks stupid";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("anksthay upidstay", output);
         }
 
@@ -186,8 +178,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenGloveTrash_ReturnsOveglayAshtray()
         {
             string input = "glove trash";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("oveglay ashtray", output);
         }
 
@@ -195,8 +186,7 @@ namespace PigLatin.Tests
         public void PigLatin_WhenGloveTrashThanksStupidSmile_ReturnsOveglayAshtray()
         {
             string input = "glove trash thanks stupid SmIlE";
-            //string output = PigLatin.ConvertToPigLatin(input);
-            string output = PigLatin.ConvertToPigLatinCluster(input);
+            string output = PigLatin.ConvertToPigLatin(input);
             Assert.AreEqual("oveglay ashtray anksthay upidstay ilesmay", output);
         }
     }

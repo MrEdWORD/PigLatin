@@ -192,4 +192,95 @@ namespace PigLatin.Tests
     }
     #endregion
 
+    #region Single Word Vowel Tests
+    [TestClass]
+    public class PigLatinTests_SingleWordVowels
+    {
+        [TestMethod]
+        public void PigLatin_WhenEat_ReturnsEatay()
+        {
+            string input = "eat";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("eatay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenOmelet_ReturnsOmeletay()
+        {
+            string input = "OMelet";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("omeletay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenAre_ReturnsAreay()
+        {
+            string input = "ARE";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("areay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenEgg_ReturnsEggay()
+        {
+            string input = "egG";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("eggay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenExplain_ReturnsExplainay()
+        {
+            string input = "explain";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("explainay", output);
+        }
+    }
+    #endregion
+
+    #region Multiple Word Vowel Tests
+    [TestClass]
+    public class PigLatinTests_MultipleWordVowels
+    {
+        [TestMethod]
+        public void PigLatin_WhenEatOmelet_ReturnsEatayOmeletay()
+        {
+            string input = "eat OMELET";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("eatay omeletay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenOmeletAre_ReturnsOmeletayAreay()
+        {
+            string input = "OMelet are";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("omeletay areay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenAreEgg_ReturnsAreayEggay()
+        {
+            string input = "ARE egg";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("areay eggay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenEggExplain_ReturnsEggayExplainay()
+        {
+            string input = "egG explain";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("eggay explainay", output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenExplainAlways_ReturnsExplainayAlwaysay()
+        {
+            string input = "explain always";
+            string output = PigLatin.ConvertToPigLatin(input);
+            Assert.AreEqual("explainay alwaysay", output);
+        }
+    }
+    #endregion
 }

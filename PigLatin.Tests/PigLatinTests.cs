@@ -283,4 +283,67 @@ namespace PigLatin.Tests
         }
     }
     #endregion
+
+    #region Validation
+    [TestClass]
+    public class PigLatinTests_Validation
+    {
+        [TestMethod]
+        public void PigLatin_WhenEmpty_ReturnsFalse()
+        {
+            string input = "";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenNull_ReturnsFalse()
+        {
+            string input = string.Empty;
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenNumber_ReturnsFalse()
+        {
+            string input = "1234567890";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenSpecialChars_ReturnsFalse()
+        {
+            string input = "Pie!";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenSpaces_ReturnsFalse()
+        {
+            string input = "                    ";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenTabs_ReturnsFalse()
+        {
+            string input = "        ";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+
+        [TestMethod]
+        public void PigLatin_WhenMoreThan29Chars_ReturnsFalse()
+        {
+            string input = "Floccinaucinihilipilifications";
+            bool output = PigLatin.ValidInput(input);
+            Assert.IsFalse(output);
+        }
+    }
+    #endregion
+
 }

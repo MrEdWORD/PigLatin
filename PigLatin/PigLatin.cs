@@ -42,11 +42,11 @@ namespace PigLatin
                             wordContainsConsonant = false;
                             break;
                         }
-                        else if (wordContainsConsonant == true && !isVowel) //if first letter was consoannt and current letter is not a vowel
+                        else if (wordContainsConsonant == true && !isVowel) //next letter in word is a consonant and current letter is not a vowel
                         {
                             numberOfConsonants++;
                         }
-                        else if (wordContainsConsonant == true && isVowel) //if first letter was consonant and current letter is vowel
+                        else if (wordContainsConsonant == true && isVowel) //next letter in word consonant and current letter is vowel
                         {
                             break;
                         }

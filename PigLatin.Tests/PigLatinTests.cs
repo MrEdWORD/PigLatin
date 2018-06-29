@@ -339,7 +339,7 @@ namespace PigLatin.Tests
         [TestMethod]
         public void PigLatin_WhenMoreThan29Chars_ReturnsFalse()
         {
-            string input = "Floccinaucinihilipilifications";
+            string input = "Floccinaucinihilipilification Floccinaucinihilipilifications";
             bool output = PigLatin.ValidInput(input);
             Assert.IsFalse(output);
         }

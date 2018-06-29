@@ -16,5 +16,11 @@ namespace PigLatin
         {
             InitializeComponent();
         }
+
+        private void picBoxPiggy_Click(object sender, EventArgs e)
+        {
+            string input = txtBoxUserInput.Text;
+            txtBoxUserInput.Text = PigLatin.ConvertToPigLatin(input);
+        }
     }
 }
